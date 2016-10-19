@@ -28,14 +28,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec/**/*spec.js': ['browserify']
+      'spec/**/*spec.js': ['browserify', 'coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'notify'],
+    reporters: ['progress', 'notify', 'coverage'],
 
 
     // web server port
@@ -79,6 +79,10 @@ module.exports = function(config) {
 
     phantomjsLauncher: {
       exitOnResourceError: true
+    },
+
+    coverageReporter: {
+      type : 'text',
     }
   })
 }
