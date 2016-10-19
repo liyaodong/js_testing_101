@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 exports.parseString = str => {
   let result = [];
 
@@ -6,4 +8,12 @@ exports.parseString = str => {
   }
 
   return result;
+};
+
+exports.testAjax = (errCb, successCb) => {
+  $.ajax({
+    url: 'http://www.baidu.com',
+    success: successCb,
+    error: errCb,
+  });
 };
